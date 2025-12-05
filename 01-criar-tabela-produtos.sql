@@ -17,15 +17,29 @@ create table produtos (
 	descricao text,
 	codigo_barras varchar (30) unique not null,
 	preco numeric (4,2) not null check (preco >= 5),
-	estoque int default 0 check (estoque >= 0),
+	estoque int default 0 not null check (estoque >= 0),
 	ativo bool default true not null,	
 	criado_em timestamp default now()
 );
 
-INSERT INTO produtos (nome, descricao, codigo_barras, preco, estoque)
-VALUES
+insert into produtos (nome, descricao, codigo_barras, preco, estoque)
+values
 ('Caderno A4 200 folhas', 'Caderno espiral universitário', '7891234500011', 15.90, 10),
 ('Caneta Azul', 'Caneta esferográfica azul', '7891234500028', 5.50, 100),
 ('Mouse USB', 'Mouse óptico USB 1600dpi', '7891234500035', 29.90, 25),
 ('Garrafa Térmica 500ml', 'Aço inox, mantém quente por 8h', '7891234500042', 45.00, 12),
 ('Fone de Ouvido', 'Intra-auricular com microfone', '7891234500059', 35.00, 30);
+
+alter table produtos add column fornecedor varchar(40) default 'Sem fornecedor' not null;
+
+update produtos set 
+descricao = 'Aço inox' where id_produto = 4;
+
+update produtos set 
+descricao = 'Caderno espiral' where id_produto = 1;
+
+update produtos set 
+descricao = 'Caneta esferográfica' where id_produto = 2;
+
+update produtos set 
+descricao = 'Mouse óptico USB' where id_produto = 3;
