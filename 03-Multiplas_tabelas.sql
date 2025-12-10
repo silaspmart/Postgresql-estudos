@@ -93,4 +93,19 @@ SELECT * FROM alunos;
 SELECT * FROM livros;
 
 SELECT * FROM emprestimos;
+
+SELECT * FROM emprestimos
+	where aluno = 3;
+
+SELECT * FROM livros
+	where tema = 'Fantasia';
+
+SELECT * FROM emprestimos
+	where devolucao is null;
+
+SELECT * FROM emprestimos
+	where devolucao is not null;
+
+SELECT * FROM emprestimos
+	where aluno = 2 or data_emp = '01/04/2025';
  
