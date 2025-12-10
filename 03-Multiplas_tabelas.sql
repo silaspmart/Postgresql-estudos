@@ -108,4 +108,10 @@ SELECT * FROM emprestimos
 
 SELECT * FROM emprestimos
 	where aluno = 2 or data_emp = '01/04/2025';
+
+select * from livros
+	where ano_publi between 1930 and 2000;
+
+select * from livros
+	where autor like '%t%';
  
